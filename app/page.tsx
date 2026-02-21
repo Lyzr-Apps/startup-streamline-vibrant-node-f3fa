@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { callAIAgent } from '@/lib/aiAgent'
-import { RiDashboardLine, RiMailSendLine, RiHistoryLine, RiAddLine, RiDeleteBinLine, RiArrowDownSLine, RiArrowUpSLine, RiCheckLine, RiCloseLine, RiSearchLine, RiGithubLine, RiMailLine, RiTrendingUpLine, RiGroupLine, RiLightbulbLine, RiAlertLine, RiStarLine, RiGitBranchLine, RiTimeLine, RiSendPlaneLine, RiRocketLine, RiEditLine, RiFilterLine, RiLoader4Line, RiExternalLinkLine, RiCheckboxCircleLine, RiErrorWarningLine, RiInformationLine, RiCodeSSlashLine, RiBarChartBoxLine, RiFileTextLine } from 'react-icons/ri'
+import { RiDashboardLine, RiMailSendLine, RiHistoryLine, RiAddLine, RiDeleteBinLine, RiArrowDownSLine, RiArrowUpSLine, RiCheckLine, RiCloseLine, RiSearchLine, RiGithubLine, RiMailLine, RiLineChartLine, RiGroupLine, RiLightbulbLine, RiAlertLine, RiStarLine, RiGitBranchLine, RiTimeLine, RiSendPlaneLine, RiRocketLine, RiEditLine, RiFilterLine, RiLoader4Line, RiExternalLinkLine, RiCheckboxCircleLine, RiErrorWarningLine, RiInformationLine, RiCodeSSlashLine, RiBarChartBoxLine, RiFileTextLine } from 'react-icons/ri'
 
 // ── Agent IDs ──
 const COORDINATOR_AGENT_ID = '69995cdd746ef9435cac7dad'
@@ -193,33 +193,6 @@ function parseEmailResponse(result: any): EmailDeliveryResponse | null {
   return null
 }
 
-// ── ErrorBoundary ──
-class ErrorBoundary extends React.Component<
-  { children: React.ReactNode },
-  { hasError: boolean; error: string }
-> {
-  constructor(props: { children: React.ReactNode }) {
-    super(props)
-    this.state = { hasError: false, error: '' }
-  }
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error: error.message }
-  }
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
-          <div className="text-center p-8 max-w-md">
-            <h2 className="text-xl font-semibold mb-2">Something went wrong</h2>
-            <p className="text-muted-foreground mb-4 text-sm">{this.state.error}</p>
-            <button onClick={() => this.setState({ hasError: false, error: '' })} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm">Try again</button>
-          </div>
-        </div>
-      )
-    }
-    return this.props.children
-  }
-}
 
 // ── Skeleton Loader ──
 function SkeletonCard() {
@@ -295,7 +268,7 @@ function Sidebar({ activeTab, setActiveTab, hasResearchData }: { activeTab: stri
               <span>Research Coordinator</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <RiTrendingUpLine className="w-3.5 h-3.5 text-emerald-500" />
+              <RiLineChartLine className="w-3.5 h-3.5 text-emerald-500" />
               <span>Market Trends Agent</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -327,7 +300,7 @@ function DashboardScreen({
   sampleMode,
 }: {
   formData: FormData
-  setFormData: React.Dispatch<React.SetStateAction<FormData>>
+  setFormData: Dispatch<SetStateAction<FormData>>
   onSubmit: () => void
   isLoading: boolean
   error: string | null
@@ -447,7 +420,7 @@ function DashboardScreen({
             {/* Investment Range */}
             <div className="bg-card border border-border rounded-lg p-5 shadow-md space-y-4">
               <label className="text-sm font-semibold text-foreground flex items-center gap-2">
-                <RiTrendingUpLine className="w-4 h-4 text-sidebar-primary" />
+                <RiLineChartLine className="w-4 h-4 text-sidebar-primary" />
                 Investment Size Range (USD)
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -586,7 +559,7 @@ function ReviewScreen({
   activeAgentId: string | null
   setActiveAgentId: (id: string | null) => void
   campaigns: Campaign[]
-  setCampaigns: React.Dispatch<React.SetStateAction<Campaign[]>>
+  setCampaigns: Dispatch<SetStateAction<Campaign[]>>
   formData: FormData
 }) {
   const [reviewTab, setReviewTab] = useState<'market' | 'github' | 'investors'>('market')
@@ -703,7 +676,7 @@ function ReviewScreen({
   }
 
   const reviewTabs = [
-    { id: 'market' as const, label: 'Market Trends', icon: RiTrendingUpLine },
+    { id: 'market' as const, label: 'Market Trends', icon: RiLineChartLine },
     { id: 'github' as const, label: 'GitHub Insights', icon: RiGithubLine },
     { id: 'investors' as const, label: 'Investor Outreach', icon: RiGroupLine },
   ]
@@ -778,7 +751,7 @@ function ReviewScreen({
           {Array.isArray(displayData?.market_trends?.key_trends) && displayData.market_trends.key_trends.length > 0 && (
             <div>
               <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                <RiTrendingUpLine className="w-4 h-4 text-sidebar-primary" />
+                <RiLineChartLine className="w-4 h-4 text-sidebar-primary" />
                 Key Trends
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -935,7 +908,7 @@ function ReviewScreen({
             {Array.isArray(displayData?.github_insights?.technology_trends) && displayData.github_insights.technology_trends.length > 0 && (
               <div className="bg-card border border-border rounded-lg p-5 shadow-md">
                 <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <RiTrendingUpLine className="w-4 h-4 text-sidebar-primary" />
+                  <RiLineChartLine className="w-4 h-4 text-sidebar-primary" />
                   Technology Trends
                 </h4>
                 <div className="space-y-2">
@@ -1393,7 +1366,7 @@ export default function Page() {
   }
 
   return (
-    <ErrorBoundary>
+    <>
       <div className="min-h-screen bg-background text-foreground font-sans flex">
         {/* Sidebar */}
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} hasResearchData={researchData !== null} />
@@ -1466,6 +1439,6 @@ export default function Page() {
           </div>
         </main>
       </div>
-    </ErrorBoundary>
+    </>
   )
 }
