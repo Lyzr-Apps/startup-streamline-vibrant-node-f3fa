@@ -1,0 +1,120 @@
+{
+  "agent_name": "Research & Outreach Coordinator",
+  "agent_id": "69995cdd746ef9435cac7dad",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "market_trends": {
+        "type": "object",
+        "properties": {
+          "sector_overview": { "type": "string" },
+          "market_size": { "type": "string" },
+          "growth_rate": { "type": "string" },
+          "key_trends": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "trend": { "type": "string" },
+                "impact": { "type": "string" },
+                "source": { "type": "string" }
+              },
+              "required": ["trend", "impact", "source"],
+              "additionalProperties": false
+            }
+          },
+          "competitors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "description": { "type": "string" },
+                "funding": { "type": "string" },
+                "stage": { "type": "string" }
+              },
+              "required": ["name", "description", "funding", "stage"],
+              "additionalProperties": false
+            }
+          },
+          "opportunities": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "risks": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["sector_overview", "market_size", "growth_rate", "key_trends", "competitors", "opportunities", "risks"],
+        "additionalProperties": false
+      },
+      "github_insights": {
+        "type": "object",
+        "properties": {
+          "repositories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "url": { "type": "string" },
+                "stars": { "type": "string" },
+                "forks": { "type": "string" },
+                "language": { "type": "string" },
+                "last_activity": { "type": "string" },
+                "description": { "type": "string" },
+                "key_insights": { "type": "string" }
+              },
+              "required": ["name", "url", "stars", "forks", "language", "last_activity", "description", "key_insights"],
+              "additionalProperties": false
+            }
+          },
+          "technical_landscape_summary": { "type": "string" },
+          "technology_trends": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["repositories", "technical_landscape_summary", "technology_trends", "recommendations"],
+        "additionalProperties": false
+      },
+      "investor_outreach": {
+        "type": "object",
+        "properties": {
+          "investors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "firm": { "type": "string" },
+                "email": { "type": "string" },
+                "match_score": { "type": "string" },
+                "rationale": { "type": "string" },
+                "draft_email_subject": { "type": "string" },
+                "draft_email_body": { "type": "string" }
+              },
+              "required": ["name", "firm", "email", "match_score", "rationale", "draft_email_subject", "draft_email_body"],
+              "additionalProperties": false
+            }
+          },
+          "total_investors_found": { "type": "string" },
+          "search_criteria_summary": { "type": "string" }
+        },
+        "required": ["investors", "total_investors_found", "search_criteria_summary"],
+        "additionalProperties": false
+      },
+      "executive_summary": { "type": "string" }
+    },
+    "required": ["market_trends", "github_insights", "investor_outreach", "executive_summary"],
+    "additionalProperties": false
+  }
+}

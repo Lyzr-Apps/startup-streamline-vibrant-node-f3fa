@@ -1,0 +1,33 @@
+{
+  "agent_name": "Investor List Agent",
+  "agent_id": "69995cc6746ef9435cac7da9",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "investors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "firm": { "type": "string" },
+            "email": { "type": "string" },
+            "match_score": { "type": "string" },
+            "rationale": { "type": "string" },
+            "draft_email_subject": { "type": "string" },
+            "draft_email_body": { "type": "string" }
+          },
+          "required": ["name", "firm", "email", "match_score", "rationale", "draft_email_subject", "draft_email_body"],
+          "additionalProperties": false
+        }
+      },
+      "total_investors_found": { "type": "string" },
+      "search_criteria_summary": { "type": "string" }
+    },
+    "required": ["investors", "total_investors_found", "search_criteria_summary"],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "agent_name": "Research & Outreach Coordinator",
+  "agent_id": "69995cdd746ef9435cac7dad",
+  "description": "Coordinates market research, GitHub analysis, and investor identification sub-agents; aggregates all outputs into a unified briefing with personalized draft emails for review",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "market_trends": {
+      "sector_overview": "string",
+      "market_size": "string",
+      "growth_rate": "string",
+      "key_trends": [
+        {
+          "trend": "string",
+          "impact": "string",
+          "source": "string"
+        }
+      ],
+      "competitors": [
+        {
+          "name": "string",
+          "description": "string",
+          "funding": "string",
+          "stage": "string"
+        }
+      ],
+      "opportunities": [
+        "string"
+      ],
+      "risks": [
+        "string"
+      ]
+    },
+    "github_insights": {
+      "repositories": [
+        {
+          "name": "string",
+          "url": "string",
+          "stars": "string",
+          "forks": "string",
+          "language": "string",
+          "last_activity": "string",
+          "description": "string",
+          "key_insights": "string"
+        }
+      ],
+      "technical_landscape_summary": "string",
+      "technology_trends": [
+        "string"
+      ],
+      "recommendations": [
+        "string"
+      ]
+    },
+    "investor_outreach": {
+      "investors": [
+        {
+          "name": "string",
+          "firm": "string",
+          "email": "string",
+          "match_score": "string",
+          "rationale": "string",
+          "draft_email_subject": "string",
+          "draft_email_body": "string"
+        }
+      ],
+      "total_investors_found": "string",
+      "search_criteria_summary": "string"
+    },
+    "executive_summary": "string"
+  },
+  "example_response": {
+    "market_trends": {
+      "sector_overview": "sample string",
+      "market_size": "sample string",
+      "growth_rate": "sample string",
+      "key_trends": [
+        {
+          "trend": "sample string",
+          "impact": "sample string",
+          "source": "sample string"
+        }
+      ],
+      "competitors": [
+        {
+          "name": "sample string",
+          "description": "sample string",
+          "funding": "sample string",
+          "stage": "sample string"
+        }
+      ],
+      "opportunities": [
+        "sample string"
+      ],
+      "risks": [
+        "sample string"
+      ]
+    },
+    "github_insights": {
+      "repositories": [
+        {
+          "name": "sample string",
+          "url": "sample string",
+          "stars": "sample string",
+          "forks": "sample string",
+          "language": "sample string",
+          "last_activity": "sample string",
+          "description": "sample string",
+          "key_insights": "sample string"
+        }
+      ],
+      "technical_landscape_summary": "sample string",
+      "technology_trends": [
+        "sample string"
+      ],
+      "recommendations": [
+        "sample string"
+      ]
+    },
+    "investor_outreach": {
+      "investors": [
+        {
+          "name": "sample string",
+          "firm": "sample string",
+          "email": "sample string",
+          "match_score": "sample string",
+          "rationale": "sample string",
+          "draft_email_subject": "sample string",
+          "draft_email_body": "sample string"
+        }
+      ],
+      "total_investors_found": "sample string",
+      "search_criteria_summary": "sample string"
+    },
+    "executive_summary": "sample string"
+  }
+}

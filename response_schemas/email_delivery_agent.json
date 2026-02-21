@@ -1,0 +1,32 @@
+{
+  "agent_name": "Email Delivery Agent",
+  "agent_id": "69995ceea63b170a3b817013",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "emails_sent": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "recipient_email": { "type": "string" },
+            "recipient_name": { "type": "string" },
+            "subject": { "type": "string" },
+            "status": { "type": "string" },
+            "error_message": { "type": "string" }
+          },
+          "required": ["recipient_email", "recipient_name", "subject", "status", "error_message"],
+          "additionalProperties": false
+        }
+      },
+      "total_sent": { "type": "string" },
+      "total_failed": { "type": "string" },
+      "summary": { "type": "string" }
+    },
+    "required": ["emails_sent", "total_sent", "total_failed", "summary"],
+    "additionalProperties": false
+  }
+}

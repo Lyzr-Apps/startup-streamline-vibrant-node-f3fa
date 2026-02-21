@@ -1,0 +1,44 @@
+{
+  "agents": {
+    "market_trends_agent": {
+      "agent_id": "69995c9a746ef9435cac7d9f",
+      "name": "Market Trends Agent",
+      "type": "sub-agent",
+      "provider": "perplexity",
+      "model": "sonar-pro"
+    },
+    "github_insights_agent": {
+      "agent_id": "69995cb5bdf6b4ca4c1bedc4",
+      "name": "GitHub Insights Agent",
+      "type": "sub-agent",
+      "provider": "openai",
+      "model": "gpt-4.1"
+    },
+    "investor_list_agent": {
+      "agent_id": "69995cc6746ef9435cac7da9",
+      "name": "Investor List Agent",
+      "type": "sub-agent",
+      "provider": "openai",
+      "model": "gpt-4.1"
+    },
+    "coordinator": {
+      "agent_id": "69995cdd746ef9435cac7dad",
+      "name": "Research & Outreach Coordinator",
+      "type": "manager",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "managed_agents": [
+        "69995c9a746ef9435cac7d9f",
+        "69995cb5bdf6b4ca4c1bedc4",
+        "69995cc6746ef9435cac7da9"
+      ]
+    },
+    "email_delivery_agent": {
+      "agent_id": "69995ceea63b170a3b817013",
+      "name": "Email Delivery Agent",
+      "type": "independent",
+      "provider": "openai",
+      "model": "gpt-4.1"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "Startup Details",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "manager_agent",
+      "type": "Agent",
+      "label": "Research & Outreach Coordinator",
+      "nodeCategory": "agent"
+    },
+    {
+      "id": "market_trends_agent",
+      "type": "Agent",
+      "label": "Market Trends Agent",
+      "nodeCategory": "agent"
+    },
+    {
+      "id": "github_insights_agent",
+      "type": "Agent",
+      "label": "GitHub Insights Agent",
+      "nodeCategory": "agent"
+    },
+    {
+      "id": "investor_list_agent",
+      "type": "Agent",
+      "label": "Investor List Agent",
+      "nodeCategory": "agent"
+    },
+    {
+      "id": "email_delivery_agent",
+      "type": "Agent",
+      "label": "Email Delivery Agent",
+      "nodeCategory": "agent"
+    },
+    {
+      "id": "output_node",
+      "type": "Output",
+      "label": "Results & Email Status",
+      "nodeCategory": "end"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "manager_agent"
+    },
+    {
+      "source": "manager_agent",
+      "target": "market_trends_agent"
+    },
+    {
+      "source": "manager_agent",
+      "target": "github_insights_agent"
+    },
+    {
+      "source": "manager_agent",
+      "target": "investor_list_agent"
+    },
+    {
+      "source": "manager_agent",
+      "target": "email_delivery_agent"
+    },
+    {
+      "source": "email_delivery_agent",
+      "target": "output_node"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "agent_name": "Market Trends Agent",
+  "agent_id": "69995c9a746ef9435cac7d9f",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "sector_overview": { "type": "string" },
+      "market_size": { "type": "string" },
+      "growth_rate": { "type": "string" },
+      "key_trends": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "trend": { "type": "string" },
+            "impact": { "type": "string" },
+            "source": { "type": "string" }
+          },
+          "required": ["trend", "impact", "source"],
+          "additionalProperties": false
+        }
+      },
+      "competitors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "description": { "type": "string" },
+            "funding": { "type": "string" },
+            "stage": { "type": "string" }
+          },
+          "required": ["name", "description", "funding", "stage"],
+          "additionalProperties": false
+        }
+      },
+      "opportunities": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "risks": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "required": ["sector_overview", "market_size", "growth_rate", "key_trends", "competitors", "opportunities", "risks"],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "agent_name": "Email Delivery Agent",
+  "agent_id": "69995ceea63b170a3b817013",
+  "description": "Sends user-approved personalized outreach emails to investors via Gmail and reports delivery status",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "emails_sent": [
+      {
+        "recipient_email": "string",
+        "recipient_name": "string",
+        "subject": "string",
+        "status": "string",
+        "error_message": "string"
+      }
+    ],
+    "total_sent": "string",
+    "total_failed": "string",
+    "summary": "string"
+  },
+  "example_response": {
+    "emails_sent": [
+      {
+        "recipient_email": "sample string",
+        "recipient_name": "sample string",
+        "subject": "sample string",
+        "status": "sample string",
+        "error_message": "sample string"
+      }
+    ],
+    "total_sent": "sample string",
+    "total_failed": "sample string",
+    "summary": "sample string"
+  }
+}

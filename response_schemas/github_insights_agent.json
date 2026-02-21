@@ -1,0 +1,41 @@
+{
+  "agent_name": "GitHub Insights Agent",
+  "agent_id": "69995cb5bdf6b4ca4c1bedc4",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "repositories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "url": { "type": "string" },
+            "stars": { "type": "string" },
+            "forks": { "type": "string" },
+            "language": { "type": "string" },
+            "last_activity": { "type": "string" },
+            "description": { "type": "string" },
+            "key_insights": { "type": "string" }
+          },
+          "required": ["name", "url", "stars", "forks", "language", "last_activity", "description", "key_insights"],
+          "additionalProperties": false
+        }
+      },
+      "technical_landscape_summary": { "type": "string" },
+      "technology_trends": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "recommendations": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "required": ["repositories", "technical_landscape_summary", "technology_trends", "recommendations"],
+    "additionalProperties": false
+  }
+}
